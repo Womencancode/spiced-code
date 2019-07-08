@@ -16,4 +16,4 @@
 
 5. `git push origin heine:heine`
 
-6. push the format.js file to the remote branch
+6. `push the format.js file to the remote branch`
