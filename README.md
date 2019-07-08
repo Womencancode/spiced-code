@@ -15,5 +15,3 @@
 4. `git commit -m "somethinh smart"``
 
 5. `git push origin heine:heine`
-
-bla
