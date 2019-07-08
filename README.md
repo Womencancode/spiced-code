@@ -15,3 +15,5 @@
 4. `git commit -m "somethinh smart"`
 
 5. `git push origin heine:heine`
+
+6. push the format.js file to the remote branch
