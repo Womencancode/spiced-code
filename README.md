@@ -9,3 +9,9 @@
 1. `git status`
 
 2. `git add`
+
+3. `git status`
+
+4. `git commit -m "somethinh smart"``
+
+5. `git push origin heine:heine`
