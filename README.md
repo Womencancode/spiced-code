@@ -12,6 +12,6 @@
 
 3. `git status`
 
-4. `git commit -m "somethinh smart"``
+4. `git commit -m "somethinh smart"`
 
 5. `git push origin heine:heine`
