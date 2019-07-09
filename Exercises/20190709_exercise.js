@@ -23,6 +23,8 @@ function logType(arg) {
     }
 }
 
+// exercise No 2
+
 var a = {
     Berlin: "Germany",
     Paris: "France",
@@ -37,3 +39,9 @@ for (var p in a) {
 }
 
 console.log(b);
+
+// exercise No 3
+
+for (var i = 10; i >= 1; i--) {
+    console.log(i);
+}
