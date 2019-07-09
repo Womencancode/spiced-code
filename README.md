@@ -1,5 +1,7 @@
 #09.07.19
 
+2. `add exercise 1, 2 and 3`
+
 1. `change .gitignore`
 
 # 08.07.19
