@@ -22,3 +22,18 @@ function logType(arg) {
         console.log("I have no Idea!");
     }
 }
+
+var a = {
+    Berlin: "Germany",
+    Paris: "France",
+    "New York": "USA"
+};
+
+var b = {};
+
+for (var p in a) {
+    console.log(p, ":", a[p]);
+    b[a[p]] = p;
+}
+
+console.log(b);
