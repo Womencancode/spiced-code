@@ -1,10 +1,8 @@
-# Setup
+#09.07.19
 
-1. `git clone` https://github.com/spicedacademy/sassafras-code.git
+1. change .gitignore
 
-2. `git checkout -b heine`
-
-# 8.7.19
+# 08.07.19
 
 1. `git status`
 
@@ -17,3 +15,9 @@
 5. `git push origin heine:heine`
 
 6. `push the format.js file to the remote branch`
+
+# Setup
+
+1. `git clone` https://github.com/spicedacademy/sassafras-code.git
+
+2. `git checkout -b heine`
