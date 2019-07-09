@@ -1,6 +1,6 @@
 #09.07.19
 
-1. change .gitignore
+1. `change .gitignore`
 
 # 08.07.19
 
