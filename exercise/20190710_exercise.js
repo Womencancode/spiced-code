@@ -47,3 +47,18 @@
     }
     console.log(funFn(NaN));
 })();
+
+// bonus exercise
+
+function getTotaler() {
+    var result = 0;
+    return function calc(num) {
+        result += num;
+        return result;
+    };
+}
+
+var totaler = getTotaler();
+console.log(totaler(1)); //1
+console.log(totaler(2)); //3
+console.log(totaler(5)); //8
