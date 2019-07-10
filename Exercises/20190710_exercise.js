@@ -16,15 +16,34 @@
 })();
 
 // exercise 2
+(function() {
+    function waitThenRun(arg) {
+        setTimeout(arg, 1500);
+    }
 
-function waitThenRun(arg) {
-    setTimeout(arg, 1500);
-}
+    waitThenRun(function() {
+        console.log("Hello!");
+    }); // logs 'Hello!' 1.5 seconds later
 
-waitThenRun(function() {
-    console.log("Hello!");
-}); // logs 'Hello!' 1.5 seconds later
+    waitThenRun(function() {
+        console.log("Goodbye!");
+    }); // logs 'Goodbye!' 1.5 seconds later
+})();
 
-waitThenRun(function() {
-    console.log("Goodbye!");
-}); // logs 'Goodbye!' 1.5 seconds later
+// exercise 3
+
+(function() {
+    function funFn(para) {
+        if (para <= 0 || isNaN(para)) {
+            return "ERROR";
+        } else if (para >= 1000000) {
+            return para;
+        } else {
+            while (para <= 1000000) {
+                para = para * 10;
+            }
+            return para;
+        }
+    }
+    console.log(funFn(NaN));
+})();
