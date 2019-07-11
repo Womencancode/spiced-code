@@ -1,4 +1,12 @@
-#09.07.19
+# 11.07.2019
+
+1. `change README.md`
+
+# 10.07.10
+
+1. add exercise add exercise 1, 2 and 3 and bonus`
+
+# 09.07.19
 
 2. `add exercise 1, 2 and 3`
 
