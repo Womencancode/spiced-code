@@ -1,5 +1,7 @@
 # 11.07.2019
 
+2. `add exercise 1, 2 and 3`
+
 1. `change README.md`
 
 # 10.07.10
