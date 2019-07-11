@@ -49,16 +49,17 @@
 })();
 
 // bonus exercise
+(function() {
+    function getTotaler() {
+        var result = 0;
+        return function calc(num) {
+            result += num;
+            return result;
+        };
+    }
 
-function getTotaler() {
-    var result = 0;
-    return function calc(num) {
-        result += num;
-        return result;
-    };
-}
-
-var totaler = getTotaler();
-console.log(totaler(1)); //1
-console.log(totaler(2)); //3
-console.log(totaler(5)); //8
+    var totaler = getTotaler();
+    console.log(totaler(1)); //1
+    console.log(totaler(2)); //3
+    console.log(totaler(5)); //8
+})();
