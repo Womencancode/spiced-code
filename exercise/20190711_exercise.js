@@ -26,7 +26,7 @@
     console.log(reverso(arr));
 })();
 
-exercise 3
+// exercise 3
 
 (function() {
     function getLessThanZero(arg) {
