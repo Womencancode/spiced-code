@@ -1,8 +1,10 @@
 # 11.07.2019
 
-2. `add exercise 1, 2 and 3`
+3. `add the sprint website`
 
-1. `change README.md`
+4. `add exercise 1, 2 and 3`
+
+5. `change README.md`
 
 # 10.07.10
 

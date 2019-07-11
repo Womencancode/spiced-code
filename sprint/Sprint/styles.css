@@ -1,0 +1,223 @@
+* {
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fcfcfc;
+    z-index: 8;
+}
+
+.logo {
+    height: 70px;
+    width: 80px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.logo img {
+    height: 50px;
+    position: absolute;
+    top: 10px;
+}
+
+.nav {
+    height: 20px;
+    width: 80px;
+    position: absolute;
+    right: 0;
+    top: auto;
+    z-index: 1;
+}
+
+.nav img {
+    height: 30px;
+    position: absolute;
+    top: 20px;
+}
+
+.main {
+    position: relative;
+    height: 660px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("./images/reichstag.jpg");
+    background-size: cover;
+    background-position: bottom;
+    transform: scale(100%);
+    margin-top: 70px;
+}
+
+.maincontent {
+    height: 100px;
+    width: 900px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.maincontent h1 {
+    position: relative;
+    color: white;
+    font-size: 3em;
+    margin: 20px 0px 30px 0px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.maincontent button {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid orange;
+    border-radius: 20px;
+    padding: 5px 30px 5px 30px;
+    background-color: yellow;
+    font-size: 20px;
+    color: orange;
+}
+
+.info {
+    position: relative;
+    height: 220px;
+    background-color: lightgrey;
+}
+
+.services {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 10px 0px 10px 0px;
+    width: 900px;
+    /* background-color: green; */
+}
+
+.infobox {
+    position: relative;
+    height: 80px;
+    width: 430px;
+    display: inline-block;
+    margin: 10px 5px 10px 5px;
+    /* background-color: yellow; */
+}
+
+.icon {
+    position: relative;
+    vertical-align: top;
+    left: 0;
+    display: inline-block;
+    /* float: left; */
+    width: 80px;
+    height: 80px;
+    /* background-color: tomato; */
+}
+
+.icon img {
+    height: 50px;
+    width: 40px;
+    margin: 15px 15px 15px 15px;
+}
+
+.infotext {
+    position: relative;
+    right: 0;
+    vertical-align: top;
+    display: inline-block;
+    width: 340px;
+    height: 80px;
+    /* float: right; */
+    padding-top: 10px;
+    /* background-color: blue; */
+}
+
+.infotext h2 {
+    font-size: 15px;
+    margin: 0 0 0 0;
+}
+
+.infotext p {
+    font-size: 15px;
+    margin: 0 0 0 0;
+}
+
+.footer {
+    /* position: relative;
+    left: 0; */
+    height: 30px;
+    background-color: grey;
+    color: white;
+    font-size: 13px;
+    padding: 8px 0 0 10px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .main {
+        height: 250px;
+    }
+
+    .maincontent {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .maincontent h1 {
+        font-size: 43px;
+        margin: -30px 0px -5px 0px;
+    }
+
+    .info {
+        height: 440px;
+    }
+
+    .services {
+        width: 375px;
+    }
+
+    .infobox {
+        width: 360px;
+        display: block;
+    }
+
+    .icon {
+        width: 50px;
+        margin-right: 10px;
+    }
+
+    .infotext {
+        width: 270px;
+        margin-left: 8px;
+    }
+
+    .maincontent {
+        width: 375px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .maincontent {
+        width: 760px;
+    }
+
+    .services {
+        width: 760px;
+    }
+
+    .infobox {
+        width: 360px;
+        display: inline-block;
+    }
+
+    .infotext {
+        width: 270px;
+    }
+}

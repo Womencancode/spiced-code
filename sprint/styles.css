@@ -1,0 +1,29 @@
+.header {
+    border: 3px dotted red;
+    height: 50px;
+    position: relative;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+    background: violet;
+    /* display: inline-block; */
+    /* float: left; */
+    position: absolute;
+    right: 0;
+    /* left: 50px; */
+    /* right: 150px;
+    bottom: 77px; */
+    /* right: 328px;
+    bottom: 90px; */
+    /* z-index: -1; */
+}
+
+#menu {
+    height: 50px;
+    width: 50px;
+    background: tomato;
+    /* display: inline-block; */
+    /* float: right; */
+}
