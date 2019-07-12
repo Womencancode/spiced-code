@@ -16,5 +16,3 @@ for (var i = 0; i < numbers.length; i++) {
 numbers = {
     y: doubleX
 };
-
-console.log(numbers);

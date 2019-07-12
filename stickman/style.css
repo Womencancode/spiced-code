@@ -1,0 +1,16 @@
+#head {
+    border:
+    width:
+    height:
+    ...
+    border-radius;
+}
+
+.arm {
+    border:
+    width:
+    height:
+    ...
+    transform: rotate(45deg);
+    transform-origin: left;
+}

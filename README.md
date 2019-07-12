@@ -1,3 +1,13 @@
+# 12.07.2019
+
+4. `add exercise bonus`
+
+5. `add exercise 1`
+
+6. `add exercise 1`
+
+7. `add markus.js`
+
 # 11.07.2019
 
 3. `add the sprint website`
@@ -8,7 +18,7 @@
 
 # 10.07.10
 
-1. add exercise add exercise 1, 2 and 3 and bonus`
+1. `add exercise add exercise 1, 2 and 3 and bonus`
 
 # 09.07.19
 

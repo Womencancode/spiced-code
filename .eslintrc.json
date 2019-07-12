@@ -11,18 +11,15 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error", 4, { "SwitchCase": 4}
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "indent": ["error", 4, { "SwitchCase": 4 }],
+        "semi": ["error", "always"],
         "no-console": 0,
         "no-inner-declarations": 0,
         "no-sparse-arrays": 0,
         "no-unexpected-multiline": 0,
-        "no-unsafe-finally": 0
+        "no-unsafe-finally": 0,
+        "no-unused-vars": 0,
+        "no-empty": 0
     },
     "globals": {
         "$": false,
