@@ -22,26 +22,43 @@
 })();
 
 //exercise 2
-// no constructrs or prototypes
 
-// (function() {
-//     var string = "Hello I am Markus";
-//
-//     function inverCase(string) {
-//         var convertedString;
-//         for (var i = 0; i < string.length; i++) {
-//             if (string[i] == string[i].toUpperCase()) {
-//             }
-//         }
-//     }
-// })();
+(function() {
+    var string = "H3llo I am Markus!";
 
-//"Hello Kitty" --> hELLO kITTY
-// .toUpperCase() and .toLowerCase()
-// loop throug a string
-// h.toUpperCase() == 'h' --> false
+    function invertCase(string) {
+        var workArray = [];
+        for (var i = 0; i < string.length; i++) {
+            if (string[i] == string[i].toUpperCase()) {
+                workArray[i] = string[i].toLowerCase();
+            } else {
+                workArray[i] = string[i].toUpperCase();
+            }
+        }
+        return workArray.join("");
+    }
 
-// function inverCase() {}
+    return console.log(invertCase(string));
+})();
 
 //exercise Bonus
 //A loop is not helpfull
+(function() {
+    function Countdown(seconds) {
+        this.seconds = seconds;
+        this.start = function() {
+            var sec = this.seconds;
+            var fn = setInterval(function() {
+                if (sec >= 0) {
+                    console.log(sec);
+                    sec--;
+                } else {
+                    clearInterval(fn);
+                }
+            }, 1000);
+        };
+    }
+
+    var countdown = new Countdown(6);
+    countdown.start();
+})();
