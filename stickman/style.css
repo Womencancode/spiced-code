@@ -1,16 +1,92 @@
-#head {
-    border:
-    width:
-    height:
-    ...
-    border-radius;
+* {
+    box-sizing: border-box;
+    margin: 0 0 0 0;
+}
+
+.head {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 200px;
+    top: 100px;
+    border: 2px black solid;
+    border-radius: 50px;
+}
+
+.torso {
+    position: absolute;
+    border: 1px black solid;
+    height: 200px;
+    left: 250px;
+    top: 200px;
 }
 
 .arm {
-    border:
-    width:
-    height:
-    ...
+    position: absolute;
+    border: 1px black solid;
+    width: 150px;
+}
+
+.arm.left {
     transform: rotate(45deg);
-    transform-origin: left;
+    transform-origin: bottom right;
+    top: 270px;
+    left: 100px;
+}
+
+.arm.right {
+    transform: rotate(-45deg);
+    transform-origin: bottom left;
+    top: 270px;
+    left: 251px;
+}
+
+.leg {
+    position: absolute;
+    border: 1px black solid;
+    width: 150px;
+}
+
+.leg.left {
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
+    top: 398px;
+    left: 101px;
+}
+
+.leg.right {
+    transform: rotate(45deg);
+    transform-origin: bottom left;
+    top: 398px;
+    left: 251px;
+}
+
+.lauch {
+    position: absolute;
+    position: absolute;
+    left: 104px;
+    top: 74px;
+    animation: rotating 0.5s linear infinite;
+    transform-origin: 40px 91px;
+}
+
+.lauch img {
+    height: 100px;
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }
