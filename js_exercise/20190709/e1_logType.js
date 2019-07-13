@@ -1,4 +1,15 @@
-// exercise No 1
+// Write a function named logType that expects a single argument and logs a different string depending on the type/value of the argument that is passed to it. The string it logs should be one of the following:
+//     "undefined!"
+//     "null!"
+//     "number!"
+//     "not a number!"
+//     "string!"
+//     "boolean!"
+//     "function!"
+//     "object!"
+//     "array!"
+//     "I have no idea!"
+
 function logType(arg) {
     if (arg === undefined) {
         console.log("undefined!");
@@ -21,27 +32,4 @@ function logType(arg) {
     } else {
         console.log("I have no Idea!");
     }
-}
-
-// exercise No 2
-
-var a = {
-    Berlin: "Germany",
-    Paris: "France",
-    "New York": "USA"
-};
-
-var b = {};
-
-for (var p in a) {
-    console.log(p, ":", a[p]);
-    b[a[p]] = p;
-}
-
-console.log(b);
-
-// exercise No 3
-
-for (var i = 10; i >= 1; i--) {
-    console.log(i);
 }
