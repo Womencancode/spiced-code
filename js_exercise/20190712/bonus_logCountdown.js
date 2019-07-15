@@ -3,6 +3,7 @@
 // instances of Countdown to initiate the countdown. Once the countdown starts,
 // it should count down to zero starting with the number that was passed to the
 // constructor and logging each number to the console with a one second delay.
+//
 
 (function() {
     function Countdown(seconds) {
