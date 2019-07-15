@@ -27,7 +27,7 @@
 (function() {
     var bheadLines = document.getElementById("headLines_bottom");
     var blinks = bheadLines.getElementsByTagName("a");
-    var right = bheadLines.offsetLeft + headLines.offsetWidth;
+    var right = bheadLines.offsetLeft + bheadLines.offsetWidth;
     var blinkArrLength = blinks.length - 1;
     moveHeadlines();
     function moveHeadlines() {
