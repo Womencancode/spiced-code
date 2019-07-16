@@ -1,5 +1,7 @@
 // Version 2
 
+console.log("asdfsdf");
+
 (function() {
     var myTextArea = document.querySelector("textarea");
     var gettysburgAdress =
