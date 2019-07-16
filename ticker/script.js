@@ -4,6 +4,9 @@
     var headLines = document.getElementById("headLines");
     var links = headLines.getElementsByTagName("a");
     var left = headLines.offsetLeft;
+    var myReq;
+    // console.log(headLines.getElementsByTagName("a"));
+    // console.log(headLines.getElementsByTagName("A"));
     moveHeadlines();
     function moveHeadlines() {
         left--;
@@ -18,8 +21,15 @@
         // console.log(left);
         headLines.style.left = left + "px";
 
-        requestAnimationFrame(moveHeadlines);
+        myReq = requestAnimationFrame(moveHeadlines);
     }
+
+    headLines.addEventListener("mouseenter", function() {
+        cancelAnimationFrame(myReq);
+    });
+    headLines.addEventListener("mouseleave", function() {
+        moveHeadlines();
+    });
 })();
 
 // ticker bottom
@@ -29,6 +39,7 @@
     var blinks = bheadLines.getElementsByTagName("a");
     var right = bheadLines.offsetLeft + bheadLines.offsetWidth;
     var blinkArrLength = blinks.length - 1;
+    var myReq;
     moveHeadlines();
     function moveHeadlines() {
         right--;
@@ -45,6 +56,13 @@
         // console.log(left);
         bheadLines.style.right = right + "px";
         // console.log(links[9].offsetWidth);
-        requestAnimationFrame(moveHeadlines);
+        myReq = requestAnimationFrame(moveHeadlines);
     }
+
+    bheadLines.addEventListener("mouseenter", function() {
+        cancelAnimationFrame(myReq);
+    });
+    bheadLines.addEventListener("mouseleave", function() {
+        moveHeadlines();
+    });
 })();
