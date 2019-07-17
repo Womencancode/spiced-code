@@ -3,7 +3,7 @@
     margin: 0 0 0 0;
 }
 
-.head {
+#head {
     position: absolute;
     width: 100px;
     height: 100px;
@@ -13,7 +13,7 @@
     border-radius: 50px;
 }
 
-.torso {
+#torso {
     position: absolute;
     border: 1px black solid;
     height: 200px;
@@ -21,48 +21,47 @@
     top: 200px;
 }
 
-.arm {
+#armleft {
     position: absolute;
     border: 1px black solid;
     width: 150px;
-}
-
-.arm.left {
     transform: rotate(45deg);
     transform-origin: bottom right;
     top: 270px;
     left: 100px;
 }
 
-.arm.right {
+#armright {
+    position: absolute;
+    border: 1px black solid;
+    width: 150px;
     transform: rotate(-45deg);
     transform-origin: bottom left;
     top: 270px;
     left: 251px;
 }
 
-.leg {
+#legleft {
     position: absolute;
     border: 1px black solid;
     width: 150px;
-}
-
-.leg.left {
     transform: rotate(-45deg);
     transform-origin: bottom right;
     top: 398px;
     left: 101px;
 }
 
-.leg.right {
+#legright {
+    position: absolute;
+    border: 1px black solid;
+    width: 150px;
     transform: rotate(45deg);
     transform-origin: bottom left;
     top: 398px;
     left: 251px;
 }
 
-.lauch {
-    position: absolute;
+#lauch {
     position: absolute;
     left: 104px;
     top: 74px;
@@ -70,7 +69,7 @@
     transform-origin: 40px 91px;
 }
 
-.lauch img {
+#lauch img {
     height: 100px;
 }
 
