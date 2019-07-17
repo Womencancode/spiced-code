@@ -1,7 +1,4 @@
 // Version 2
-
-console.log("asdfsdf");
-
 (function() {
     var myTextArea = document.querySelector("textarea");
     var gettysburgAdress =
@@ -9,7 +6,6 @@ console.log("asdfsdf");
 
     myTextArea.addEventListener("input", function() {
         // myTextArea.value = myTextArea.value + "df";
-
         myTextArea.value = gettysburgAdress.slice(0, myTextArea.value.length);
     });
 })();
