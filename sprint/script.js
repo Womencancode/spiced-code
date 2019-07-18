@@ -6,6 +6,12 @@
     var navItem = document.querySelector("#hamburger-menu ul");
     var hamButValue = 0;
 
+    function removeNav() {
+        hamMenu.classList.remove("on");
+        menu.classList.remove("on");
+        hamButValue = 0;
+    }
+
     hamburgerBtn.addEventListener("click", function() {
         if (hamButValue == 0) {
             // hamMenu.style.visibility = "visible";
@@ -20,21 +26,15 @@
     });
 
     x.addEventListener("click", function() {
-        hamMenu.classList.remove("on");
-        menu.classList.remove("on");
-        hamButValue = 0;
+        removeNav();
     });
 
     hamMenu.addEventListener("click", function() {
-        hamMenu.classList.remove("on");
-        menu.classList.remove("on");
-        hamButValue = 0;
+        removeNav();
     });
 
     navItem.addEventListener("click", function() {
-        hamMenu.classList.remove("on");
-        menu.classList.remove("on");
-        hamButValue = 0;
+        removeNav();
     });
 
     menu.addEventListener("click", function(evt) {
