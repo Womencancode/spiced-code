@@ -1,0 +1,55 @@
+nav {
+    display: flex;
+    /* justify-content is a FLEYX CSS property */
+    justify-content: flex-end;
+}
+
+nav p {
+    font-family: "Helvetica Neue";
+    font-weight: 400;
+    letter-spacing: 1px;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.3s;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+nav p:hover {
+    border-bottom: 1px solid black;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* border: 3px solid red;
+    height: 6000px; */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 400px;
+    width: 250px;
+    margin: 5px 5px;
+    padding: 0 5px;
+}
+
+img {
+    align-self: center;
+    height: 200px;
+    width: 200px;
+}
+
+#firstCard {
+    background-color: tomato;
+}
+
+.card:last-child {
+    background-color: blue;
+    flex-shrink: 1;
+}
