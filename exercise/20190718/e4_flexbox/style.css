@@ -1,0 +1,47 @@
+body {
+    display: flex;
+}
+.box {
+    margin: 0 5px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 200px;
+}
+
+.one {
+    background-color: grey;
+}
+
+.innerBox {
+    height: 100px;
+    width: 100px;
+}
+
+.box.one .innerBox.tl {
+    background-color: orange;
+}
+
+.two {
+    background-color: black;
+}
+
+.box.two .innerBox.bl {
+    background-color: yellow;
+}
+
+.three {
+    background-color: blue;
+}
+
+.box.three .innerBox.br {
+    background-color: green;
+}
+
+.four {
+    background-color: purple;
+}
+
+.box.four .innerBox.tl {
+    background-color: pink;
+}

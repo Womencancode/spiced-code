@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: orange;
+    height: 70px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: grey;
+    flex-grow: 1;
+}
+
+main img {
+}
+
+footer {
+    background-color: pink;
+    height: 30px;
+}
