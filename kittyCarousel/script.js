@@ -1,12 +1,12 @@
 (function() {
     var kitties = document.getElementsByClassName("kitty");
     var current = 0;
-    setTimeout(moveKitty, 2000);
+    setTimeout(moveKitty, 5000);
 
     document.addEventListener("transitionend", function fn(e) {
         if (e.target.classList.contains("exit")) {
             e.target.classList.remove("exit");
-            setTimeout(moveKitty, 1000);
+            setTimeout(moveKitty, 3000);
         }
     });
 
