@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+.container {
+    min-height: 100vh;
+    display: grid;
+    /* grid-template-columns: 100px 200px 100px; */
+    grid-template-columns: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr 50px;
+}
+
+header {
+    background-color: palevioletred;
+    /* grid-column: 1 / 4; */
+    /* grid-column: 1 / span 3; */
+    grid-column: 1 / -1;
+}
+
+.left-sidebar {
+    background-color: blueviolet;
+}
+
+.right-sidebar {
+    background-color: royalblue;
+}
+
+main {
+    background-color: yellowgreen;
+}
+
+footer {
+    background-color: tomato;
+    grid-column: 1 / 4;
+}

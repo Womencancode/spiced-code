@@ -1,0 +1,52 @@
+main {
+    background-color: lightgrey;
+    width: 800px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 300px);
+    grid-auto-rows: 300px;
+}
+
+p {
+    font-size: 30px;
+    color: white;
+    margin: 0;
+}
+
+.section-1 {
+    background: orangered;
+}
+
+.section-2 {
+    background: yellowgreen;
+}
+
+.section-3 {
+    background: blueviolet;
+}
+
+.section-4 {
+    background: palevioletred;
+}
+
+.section-5 {
+    background: royalblue;
+    grid-row: 1 / span 2;
+    grid-column: 2 / span 2;
+    justify-self: center;
+    align-self: center;
+}
+
+.section-6 {
+    background: goldenrod;
+}
+
+.section-7 {
+    background: crimson;
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.section-8 {
+    background: darkslategray;
+}
