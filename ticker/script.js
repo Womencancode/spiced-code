@@ -1,33 +1,32 @@
 // ticker top
 
 (function() {
-    var headLines = document.getElementById("headLines");
-    var links = headLines.getElementsByTagName("a");
-    var left = headLines.offsetLeft;
+    var headLines = $("#headLines");
+    var links = $("a");
+    var left = headLines.offset().left;
     var myReq;
     // console.log(headLines.getElementsByTagName("a"));
     // console.log(headLines.getElementsByTagName("A"));
     moveHeadlines();
     function moveHeadlines() {
         left--;
-        if (left <= -links[0].offsetWidth) {
+        if (left <= -links.eq(0).outerWidth()) {
             // add to left the width of the first link
-            left = left + links[0].offsetWidth;
+            left = left + links.eq(0).outerWidth();
             // remove the first link and make it last link
-            var line = links[0].parentNode;
-            line.appendChild(links[0]);
+            var line = links.eq(0).parent();
+            line.append(links.eq(0));
         }
         // move headlines to new position
         // console.log(left);
-        headLines.style.left = left + "px";
-
+        headLines.css({ left: left + "px" });
         myReq = requestAnimationFrame(moveHeadlines);
     }
 
-    headLines.addEventListener("mouseenter", function() {
+    headLines.on("mouseenter", function() {
         cancelAnimationFrame(myReq);
     });
-    headLines.addEventListener("mouseleave", function() {
+    headLines.on("mouseleave", function() {
         moveHeadlines();
     });
 })();
@@ -35,34 +34,33 @@
 // ticker bottom
 
 (function() {
-    var bheadLines = document.getElementById("headLines_bottom");
-    var blinks = bheadLines.getElementsByTagName("a");
-    var right = bheadLines.offsetLeft + bheadLines.offsetWidth;
+    var bheadLines = $("#headLines_bottom");
+    var blinks = $("a");
+    var right = bheadLines.offset().left + bheadLines.outerWidth();
     var blinkArrLength = blinks.length - 1;
     var myReq;
     moveHeadlines();
     function moveHeadlines() {
         right--;
-        if (right <= -blinks[blinkArrLength].offsetWidth) {
-            right = right + blinks[blinkArrLength].offsetWidth;
+        if (right <= -blinks.eq(blinkArrLength).outerWidth()) {
+            right = right + blinks.eq(blinkArrLength).outerWidth();
             var lastLink = blinks[blinkArrLength];
-            blinks[blinkArrLength] = bheadLines.insertBefore(
-                lastLink,
-                blinks[0]
-            );
+            blinks[blinkArrLength] = bheadLines.prepend(lastLink, blinks[0]);
         }
 
         // move headlines to new position
         // console.log(left);
-        bheadLines.style.right = right + "px";
-        // console.log(links[9].offsetWidth);
+        bheadLines.css({
+            right: right + "px"
+        });
+        // console.log(links[9].outerWidth());
         myReq = requestAnimationFrame(moveHeadlines);
     }
 
-    bheadLines.addEventListener("mouseenter", function() {
+    bheadLines.on("mouseenter", function() {
         cancelAnimationFrame(myReq);
     });
-    bheadLines.addEventListener("mouseleave", function() {
+    bheadLines.on("mouseleave", function() {
         moveHeadlines();
     });
 })();
