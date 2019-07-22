@@ -1,43 +1,53 @@
 (function() {
-    var hamburgerBtn = document.getElementById("nav");
-    var x = document.querySelector("#hamburger-menu .x");
-    var hamMenu = document.getElementById("hamburger-menu");
-    var menu = document.getElementById("menu"); //stop propagation
-    var navItem = document.querySelector("#hamburger-menu ul");
+    var hamburgerBtn = $("#nav");
+    var x = $("#hamburger-menu .x");
+    var hamMenu = $("#hamburger-menu");
+    var menu = $("#menu"); //stop propagation
+    var navItem = $("#hamburger-menu ul");
     var hamButValue = 0;
+    var modelDialog = $("#modelDialogBG");
+    var xModelDialog = $("#modelX");
+
+    function showModelDialog() {
+        modelDialog.delay(1000).fadeIn(100);
+        xModelDialog.on("click", function() {
+            modelDialog.fadeOut(20);
+        });
+    }
+    showModelDialog();
 
     function removeNav() {
-        hamMenu.classList.remove("on");
-        menu.classList.remove("on");
+        hamMenu.removeClass("on");
+        menu.removeClass("on");
         hamButValue = 0;
     }
 
-    hamburgerBtn.addEventListener("click", function() {
+    hamburgerBtn.on("click", function() {
         if (hamButValue == 0) {
             // hamMenu.style.visibility = "visible";
-            hamMenu.classList.add("on");
-            menu.classList.add("on");
+            hamMenu.addClass("on");
+            menu.addClass("on");
             hamButValue = 1;
         } else {
-            hamMenu.classList.remove("on");
-            menu.classList.remove("on");
+            hamMenu.removeClass("on");
+            menu.removeClass("on");
             hamButValue = 0;
         }
     });
 
-    x.addEventListener("click", function() {
+    x.on("click", function() {
         removeNav();
     });
 
-    hamMenu.addEventListener("click", function() {
+    hamMenu.on("click", function() {
         removeNav();
     });
 
-    navItem.addEventListener("click", function() {
+    navItem.on("click", function() {
         removeNav();
     });
 
-    menu.addEventListener("click", function(evt) {
+    menu.on("click", function(evt) {
         evt.stopPropagation();
     });
 })();
