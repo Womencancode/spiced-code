@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+
+.box {
+    margin: 5px;
+    display: inline-grid;
+    grid-template-columns: 100px 100px;
+    grid-template-rows: 100px 100px;
+    vertical-align: top;
+}
+
+.one {
+    background-color: grey;
+}
+
+.one .color {
+    background-color: orange;
+    grid-column: 2 / 3;
+}
+
+.two {
+    background-color: black;
+}
+
+.two .color {
+    background-color: yellow;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+}
+
+.three {
+    background-color: blue;
+}
+
+.three .color {
+    background-color: green;
+    grid-row: 2 / 3;
+}
+
+.four {
+    background-color: purple;
+}
+
+.four .color {
+    background-color: pink;
+    grid-column: 1 / 2;
+}
