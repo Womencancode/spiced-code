@@ -64,9 +64,16 @@
         var x = touchstartX - touchendX;
         var y = touchstartY - touchendY;
         console.log(x, y);
+        console.log(kitties.length, current);
 
         if (x > 100 || x < -100) {
-            moveKitty(current + 1);
+            if (current < kitties.length) {
+                moveKitty(current + 1);
+            } else {
+                current = 0;
+                moveKitty(current);
+            }
+
             swipe = true;
             console.log(swipe);
         }
