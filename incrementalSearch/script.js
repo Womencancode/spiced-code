@@ -290,17 +290,12 @@
     });
     // key navigation
     $(document).on("keydown", function(e) {
+        var resultElements = $(".result");
         var highlighted = $(".highlight");
         if (e.keyCode == 40) {
-            if (!$(".result").hasClass("highlight")) {
-                $(".result")
-                    .eq(0)
-                    .addClass("highlight");
-            } else if (
-                !$(".result")
-                    .eq(3)
-                    .hasClass("highlight")
-            ) {
+            if (!resultElements.hasClass("highlight")) {
+                resultElements.eq(0).addClass("highlight");
+            } else if (!resultElements.eq(3).hasClass("highlight")) {
                 highlighted
                     .next()
                     .addClass("highlight")
@@ -309,15 +304,9 @@
             }
         }
         if (e.keyCode == 38) {
-            if (!$(".result").hasClass("highlight")) {
-                $(".result")
-                    .eq(3)
-                    .addClass("highlight");
-            } else if (
-                !$(".result")
-                    .eq(0)
-                    .hasClass("highlight")
-            ) {
+            if (!resultElements.hasClass("highlight")) {
+                resultElements.eq(3).addClass("highlight");
+            } else if (!resultElements.eq(0).hasClass("highlight")) {
                 highlighted
                     .prev()
                     .addClass("highlight")
