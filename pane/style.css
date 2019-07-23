@@ -43,3 +43,7 @@ img {
     /* change width with javascript */
     left: 305px;
 }
+
+.bar:hover {
+    cursor: col-resize;
+}
