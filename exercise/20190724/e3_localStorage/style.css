@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+#textarea {
+    border: 1px dotted lightgrey;
+    height: 400px;
+    width: 400px;
+}
