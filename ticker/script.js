@@ -2,9 +2,36 @@
 
 (function() {
     var headlines = $("#headLines");
-    var links = headlines.find("a");
+    // var links = headlines.find("a");
     var left = headlines.offset().left;
     var myReq;
+
+    createLinks();
+    function createLinks() {
+        console.log("createLinks");
+        $.ajax({
+            url: "/links.json",
+            method: "GET",
+            success: function(response) {
+                var linkHtml = "";
+                for (var i = 0; i < response.length; i++) {
+                    var x =
+                        '<a href="' +
+                        response[i].href +
+                        '">' +
+                        response[i].title +
+                        "</a>";
+                    linkHtml += x;
+                }
+                $("#headLines").html(linkHtml);
+            },
+            error: function(error) {
+                console.log("error: ", error);
+                alert("error: " + error.status);
+            }
+        });
+    }
+
     moveHeadlines();
     function moveHeadlines() {
         left--;
