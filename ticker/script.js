@@ -42,7 +42,6 @@
                 .eq(0)
                 .outerWidth()
         ) {
-            console.log("lalala");
             left =
                 left +
                 headlines
