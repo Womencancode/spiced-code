@@ -47,6 +47,6 @@
 
   + when I insert the "victory stone" in between like in the picture
 
-    ​![](/Users/markusheine/Desktop/Bildschirmfoto 2019-07-26 um 22.35.33.png)
+    ![https://www.dropbox.com/s/y8q387sxb5fp6fl/Bildschirmfoto%202019-07-26%20um%2022.35.33.png?dl=0]()
 
   when I add the last red coin in the victory slot nothing happens. 
