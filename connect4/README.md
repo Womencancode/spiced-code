@@ -35,4 +35,18 @@
   })();)
   ```
 
-  * 
+
+
+## 3. Bugs
+
++ what works
+
+  + find the diagonal victory from left to right when the "victory stone" is the last stone. it does not matter if on the left or on the right side.
+
++ what does not work
+
+  + when I insert the "victory stone" in between like in the picture
+
+    ​![](/Users/markusheine/Desktop/Bildschirmfoto 2019-07-26 um 22.35.33.png)
+
+  when I add the last red coin in the victory slot nothing happens. 
