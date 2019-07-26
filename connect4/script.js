@@ -67,13 +67,8 @@
         // check the victory horizontaly left to right
         // ********
         function checkForVictoryHorizontalyDown(slots) {
-            // console.log(slots);
-            // console.log(actualSlot[0]);
-            // console.log(slots);
-            // console.log(actualSlot[0]);
             var slotsPosition;
             for (var i = 0; i < slots.length; i++) {
-                // console.log(slots[i]);
                 if (slots[i] == actualSlot[0]) {
                     slotsPosition = i;
                     break;
@@ -81,40 +76,9 @@
             }
             checkLeftToRight();
             function checkLeftToRight() {
-                // console.log("+-+-+-+-+-+-+-+-+-");
-                // console.log("check left to right");
                 var vertialLtRcount = 1;
-                for (var j = 1; j <= 4; j++) {
+                for (var j = 1; j <= 3; j++) {
                     var substractor = 5;
-
-                    //********
-                    // visualize actual and future slots
-                    //********
-                    // console.log(substractor);
-                    // console.log("actual slot");
-                    // console.log(
-                    //     "Slot: " +
-                    //         slotsPosition +
-                    //         " in row: " +
-                    //         slots
-                    //             .eq(slotsPosition)
-                    //             .parent()
-                    //             .attr("id")
-                    // );
-                    // console.log("substractor: " + substractor);
-                    // console.log("next slot is: -->");
-                    // console.log(
-                    //     console.log(
-                    //         "Slot: " +
-                    //             (slotsPosition - substractor) +
-                    //             " in row: " +
-                    //             slots
-                    //                 .eq(slotsPosition - substractor)
-                    //                 .parent()
-                    //                 .attr("id")
-                    //     )
-                    // );
-                    // console.log("++++++++++++++");
                     if (
                         slots
                             .eq(slotsPosition)
@@ -125,87 +89,44 @@
                             .parent()
                             .attr("id")
                     ) {
-                        // console.log("in the if statement");
                         slotsPosition = slotsPosition - substractor;
                         var slotPosNew = slots.eq(slotsPosition);
-
-                        // console.log("Old: " + slotPosOld.attr("class"));
-                        // console.log(slotPosOld.hasClass(currentPlayer));
-                        // console.log("New: " + slotPosNew.attr("class"));
-                        // console.log(slotPosNew.hasClass(currentPlayer));
-                        // console.log(currentPlayer);
-
                         if (slotPosNew.hasClass(currentPlayer)) {
                             vertialLtRcount++;
                             if (vertialLtRcount == 4) {
-                                // console.log(currentPlayer + " wins");
                                 column.off();
                                 winningAnimation();
                             }
                         }
                     } else {
-                        // console.log("/+/+/+/+/+/+/+/+");
                         //********
-                        // start incremeting the count
+                        // start check slots upwards
                         //********
                         var slotPostIncrementStart = slotPosNew;
-                        // console.log(slotPostIncrementStart);
                         checkForVictoryHorizontalyUp(
                             $("#gamearea").find(".slot"),
                             slotPostIncrementStart
                         );
-                        ////////////////////////////
                         break;
                     }
                 }
             }
         }
         function checkForVictoryHorizontalyUp(slots, startPoint) {
-            // console.log("call checkForVictoryHorizontalyUp");
             var slotsPosition = startPoint;
-            for (var i = 0; i < slots.length; i++) {
-                // console.log(slots[i]);
-                if (slots[i] == actualSlot[0]) {
-                    slotsPosition = i;
+            console.log("checkForVictoryHorizontalyUp");
+            console.log(slotsPosition);
+            for (var k = 0; k < slots.length; k++) {
+                if (slots[k] == actualSlot[0]) {
+                    slotsPosition = k;
                     break;
                 }
             }
             checkLeftToRight();
             function checkLeftToRight() {
-                // console.log("+-+-+-+-+-+-+-+-+-");
-                // console.log("check left to right");
                 var vertialRtLcount = 1;
-                for (var j = 1; j <= 4; j++) {
+                for (var l = 1; l <= 3; l++) {
                     var aditionier = 5;
-
-                    //********
-                    // visualize actual and future slots
-                    //********
-                    // console.log(substractor);
-                    // console.log("actual slot");
-                    // console.log(
-                    //     "Slot: " +
-                    //         slotsPosition +
-                    //         " in row: " +
-                    //         slots
-                    //             .eq(slotsPosition)
-                    //             .parent()
-                    //             .attr("id")
-                    // );
-                    // console.log("substractor: " + substractor);
-                    // console.log("next slot is: -->");
-                    // console.log(
-                    //     console.log(
-                    //         "Slot: " +
-                    //             (slotsPosition - substractor) +
-                    //             " in row: " +
-                    //             slots
-                    //                 .eq(slotsPosition - substractor)
-                    //                 .parent()
-                    //                 .attr("id")
-                    //     )
-                    // );
-                    // console.log("++++++++++++++");
                     if (
                         slots
                             .eq(slotsPosition)
@@ -216,30 +137,16 @@
                             .parent()
                             .attr("id")
                     ) {
-                        // console.log("in the if statement");
                         slotsPosition = slotsPosition + aditionier;
                         var slotPosNew = slots.eq(slotsPosition);
-
-                        // console.log("Old: " + slotPosOld.attr("class"));
-                        // console.log(slotPosOld.hasClass(currentPlayer));
-                        // console.log("New: " + slotPosNew.attr("class"));
-                        // console.log(slotPosNew.hasClass(currentPlayer));
-                        // console.log(currentPlayer);
-
                         if (slotPosNew.hasClass(currentPlayer)) {
                             vertialRtLcount++;
                             if (vertialRtLcount == 4) {
-                                // console.log(currentPlayer + " wins");
                                 column.off();
                                 winningAnimation();
                             }
                         }
                     } else {
-                        // console.log("/+/+/+/+/+/+/+/+");
-                        //********
-                        // start incremeting the count
-                        //********
-                        ////////////////////////////
                         break;
                     }
                 }
