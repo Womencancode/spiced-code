@@ -1,7 +1,10 @@
 (function() {
     var currentPlayer = "player1";
     var column = $(".column");
+    var slotArr = $("#gamearea").find(".slot");
     var actualSlot;
+    var actualSlotPosition;
+    var returnedActualSlotPosition = false;
 
     //********
     // switch Players
@@ -26,6 +29,97 @@
         winnerDiv.fadeIn("4000");
     }
 
+    //********
+    // check the victory for rows an columns
+    //********
+    function checkForVictory(slots) {
+        var counter = 0;
+        for (var i = 0; i < slots.length; i++) {
+            if (slots.eq(i).hasClass(currentPlayer)) {
+                counter++;
+                if (counter == 4) {
+                    console.log(currentPlayer + " wins");
+                    return true;
+                }
+            } else {
+                counter = 0;
+            }
+        }
+    }
+
+    //********
+    // check diagonal
+    // direction:   top right to bottom left: -5
+    //              bottom left to top right: +5
+    //              top left to bottom right: +7
+    //              bottom right to top left: -7
+    //********
+
+    function checkForVictoryDiagonal(slots, direction, actualSlotPosition) {
+        console.log("check: " + direction);
+        returnedActualSlotPosition = false;
+        var count = 0;
+        // console.log("direction: " + direction);
+        // console.log("Actual Slot Postion: " + actualSlotPosition);
+        // console.log("New Slot Position: " + (actualSlotPosition + direction));
+        // console.log(
+        //     slots
+        //         .eq(actualSlotPosition)
+        //         .parent()
+        //         .attr("id")
+        // );
+        // console.log(
+        //     slots
+        //         .eq(actualSlotPosition + direction)
+        //         .parent()
+        //         .attr("id")
+        // );
+        for (var j = 0; j < 4; j++) {
+            if (
+                slots
+                    .eq(actualSlotPosition)
+                    .parent()
+                    .attr("id") !=
+                slots
+                    .eq(actualSlotPosition + direction)
+                    .parent()
+                    .attr("id")
+            ) {
+                var oldSlot = slots.eq(actualSlotPosition);
+                var newSlot = slots.eq(actualSlotPosition + direction);
+                if (count == 0) {
+                    count++;
+                }
+                if (
+                    oldSlot.hasClass(currentPlayer) ==
+                    newSlot.hasClass(currentPlayer)
+                ) {
+                    // console.log("oldSlot: " + oldSlot.attr("id"));
+                    // console.log("newSlot: " + newSlot.attr("id"));
+                    count++;
+                    console.log("counter: " + count);
+                    if (count == 4) {
+                        return true;
+                    } else {
+                        actualSlotPosition = actualSlotPosition + direction;
+                    }
+                } else {
+                    console.log("next slot hast different color or no color");
+                    count = 0;
+                    returnedActualSlotPosition = actualSlotPosition;
+                    break;
+                }
+            } else {
+                console.log("slots in the same column");
+                returnedActualSlotPosition = actualSlotPosition;
+                console.log("+++++++++ BREAK +++++++++++");
+                break;
+            }
+        }
+        ///////// function checkForVictoryDiagonal end /////////////
+        return;
+    }
+
     column.on("click", function(e) {
         //********
         // add the stones
@@ -42,115 +136,16 @@
                 break;
             }
         }
-        if (i == -1) {
-            return;
-        }
-        //********
-        // check the victory for rows an columns
-        //********
-        function checkForVictory(slots) {
-            var counter = 0;
-            for (var i = 0; i < slots.length; i++) {
-                if (slots.eq(i).hasClass(currentPlayer)) {
-                    counter++;
-                    if (counter == 4) {
-                        console.log(currentPlayer + " wins");
-                        return true;
-                    }
-                } else {
-                    counter = 0;
-                }
+
+        for (var k = 0; k < slotArr.length; k++) {
+            if (slotArr[k] == actualSlot[0]) {
+                actualSlotPosition = k;
+                break;
             }
         }
 
-        // ********
-        // check the victory horizontaly left to right
-        // ********
-        function checkForVictoryHorizontalyDown(slots) {
-            var slotsPosition;
-            for (var i = 0; i < slots.length; i++) {
-                if (slots[i] == actualSlot[0]) {
-                    slotsPosition = i;
-                    break;
-                }
-            }
-            checkLeftToRight();
-            function checkLeftToRight() {
-                var vertialLtRcount = 1;
-                for (var j = 1; j <= 3; j++) {
-                    var substractor = 5;
-                    if (
-                        slots
-                            .eq(slotsPosition)
-                            .parent()
-                            .attr("id") !=
-                        slots
-                            .eq(slotsPosition - substractor)
-                            .parent()
-                            .attr("id")
-                    ) {
-                        slotsPosition = slotsPosition - substractor;
-                        var slotPosNew = slots.eq(slotsPosition);
-                        if (slotPosNew.hasClass(currentPlayer)) {
-                            vertialLtRcount++;
-                            if (vertialLtRcount == 4) {
-                                column.off();
-                                winningAnimation();
-                            }
-                        }
-                    } else {
-                        //********
-                        // start check slots upwards
-                        //********
-                        var slotPostIncrementStart = slotPosNew;
-                        checkForVictoryHorizontalyUp(
-                            $("#gamearea").find(".slot"),
-                            slotPostIncrementStart
-                        );
-                        break;
-                    }
-                }
-            }
-        }
-        function checkForVictoryHorizontalyUp(slots, startPoint) {
-            var slotsPosition = startPoint;
-            console.log("checkForVictoryHorizontalyUp");
-            console.log(slotsPosition);
-            for (var k = 0; k < slots.length; k++) {
-                if (slots[k] == actualSlot[0]) {
-                    slotsPosition = k;
-                    break;
-                }
-            }
-            checkLeftToRight();
-            function checkLeftToRight() {
-                var vertialRtLcount = 1;
-                for (var l = 1; l <= 3; l++) {
-                    var aditionier = 5;
-                    if (
-                        slots
-                            .eq(slotsPosition)
-                            .parent()
-                            .attr("id") !=
-                        slots
-                            .eq(slotsPosition + aditionier)
-                            .parent()
-                            .attr("id")
-                    ) {
-                        slotsPosition = slotsPosition + aditionier;
-                        var slotPosNew = slots.eq(slotsPosition);
-                        if (slotPosNew.hasClass(currentPlayer)) {
-                            vertialRtLcount++;
-                            if (vertialRtLcount == 4) {
-                                column.off();
-                                winningAnimation();
-                            }
-                        }
-                    } else {
-                        break;
-                    }
-                }
-            }
+        if (i == -1) {
+            return;
         }
 
         //********
@@ -162,8 +157,31 @@
         } else if (checkForVictory($("." + (i + 1)))) {
             winningAnimation();
             column.off();
+        } else if (checkForVictoryDiagonal(slotArr, -5, actualSlotPosition)) {
+            winningAnimation();
+            column.off();
+            // check diagonal from left to right
         } else if (
-            checkForVictoryHorizontalyDown($("#gamearea").find(".slot"))
+            returnedActualSlotPosition !== false &&
+            checkForVictoryDiagonal(slotArr, 5, returnedActualSlotPosition)
+        ) {
+            // console.log("<3<3<3<3<3<3<3<3<3<3<3");
+            // console.log("actualSlotPosition: " + actualSlotPosition);
+            // console.log(
+            //     "returnedActualSlotPosition: " + returnedActualSlotPosition
+            // );
+            // console.log("<3<3<3<3<3<3<3<3<3<3<3");
+
+            winningAnimation();
+            column.off();
+
+            // check diagonalfrom right to left
+        } else if (checkForVictoryDiagonal(slotArr, 7, actualSlotPosition)) {
+            winningAnimation();
+            column.off();
+        } else if (
+            returnedActualSlotPosition !== false &&
+            checkForVictoryDiagonal(slotArr, -7, returnedActualSlotPosition)
         ) {
             winningAnimation();
             column.off();

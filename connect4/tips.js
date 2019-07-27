@@ -60,3 +60,24 @@ function checkForVictory(slots) {
 //horiziontal check
 
 var slots = $(".slots")
+var slot1 = slots.eq(i);
+var slot2 = slots.eq(i+7);
+var slot3 = slots.eq(i+14);
+
+var victories = [
+    [0, 7, 14, 21],
+    [1, 8,15, 22]
+    ...
+]
+
+
+if (
+    slots
+        .eq(i)
+        .parent()
+        .attr("id") !=
+    slots
+        .eq(slotsPosition - substractor)
+        .parent()
+        .attr("id")
+)
