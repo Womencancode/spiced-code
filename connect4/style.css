@@ -3,17 +3,70 @@ body {
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+    overflow: hidden;
+    margin: 0;
+}
+
+#backgroundVideo {
+    position: fixed;
+    transform: rotate(180deg);
+    z-index: -3;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#backgroundOverlay {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0);
+}
+
+header {
+    width: 100%;
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
 }
 
 #gamearea {
     display: flex;
-    height: 600px;
+    height: 530px;
     width: 700px;
+}
+
+#sidebarDieter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 530px;
+}
+
+#sidebarThomas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 530px;
 }
 
 .column {
     width: 100px;
-    height: 600px;
+    height: inherit;
 }
 
 .slot {
@@ -22,32 +75,44 @@ body {
     border: 1px solid black;
     border-radius: 50px;
     margin: 5px;
-}
-
-.active {
+    background-color: rgba(254, 28, 224, 0.42);
 }
 
 .player1 {
-    background-color: red;
+    background-image: url(./media/dieter.jpg);
+    background-size: contain;
+    box-shadow: inset 0 0 10px rgba(254, 28, 224, 0.42);
 }
 
 .player2 {
-    background-color: green;
+    background-image: url(./media/thomas.jpg);
+    background-size: contain;
+    box-shadow: inset 0 0 10px rgba(254, 28, 224, 0.42);
 }
-
-#winner {
-    font-family: "Courier New";
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#winnerBack {
     position: fixed;
-    width: 70%;
-    height: 400px;
-    border: 1px black solid;
-    background-color: rgba(207, 190, 215, 0.44);
     top: 50%;
     transform: translateY(-50%);
+    width: 85%;
+    height: 450px;
+    width: 84%;
+    height: 450px;
     display: none;
+    background-color: rgba(255, 52, 216, 0.88);
+    box-shadow: 0 0 64px 38px rgb(255, 52, 216);
+}
+#winner {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-around;
+    font-family: "Bungee Outline", cursive;
+    color: #202020;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-color: inherit;
+    background-color: transparent;
 }
 
 #winner h4 {
@@ -55,5 +120,73 @@ body {
 }
 
 #winner h1 {
+    text-align: center;
     font-size: 100px;
+}
+
+#btn-Area {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 50px;
+}
+
+button {
+    font-family: "Comic Sans MS";
+    height: 100px;
+    width: 100px;
+    border: 3px solid rgb(251, 136, 250);
+    background-color: transparent;
+    border-radius: 50px;
+    box-shadow: inset 0 0 21px rgb(251, 136, 250);
+}
+
+button:active {
+    box-shadow: inset 0 0 21px rgb(251, 136, 250);
+    transform: translateY(4px);
+}
+
+.playerImage img {
+    animation: imagesBack 0.3s;
+    border-radius: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+.playerImage.active img {
+    animation: image 0.3s;
+    border-radius: 80px;
+    width: 160px;
+    height: 160px;
+    background-color: rgba(255, 52, 216, 0.88);
+    box-shadow: 0 0 64px 38px rgb(255, 52, 216);
+}
+
+@keyframes image {
+    0% {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        box-shadow: 0 0 0 0 rgb(255, 52, 216);
+    }
+    100% {
+        width: 160px;
+        height: 160px;
+        border-radius: 80px;
+        box-shadow: 0 0 64px 38px rgb(255, 52, 216);
+    }
+}
+
+@keyframes imagesBack {
+    0% {
+        width: 160px;
+        height: 160px;
+        border-radius: 80px;
+        box-shadow: 0 0 64px 38px rgb(255, 52, 216);
+    }
+    100% {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        box-shadow: 0 0 0 0 rgb(255, 52, 216);
+    }
 }

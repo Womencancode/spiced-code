@@ -3,24 +3,34 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+         <link href="https://fonts.googleapis.com/css?family=Bungee+Outline&display=swap" rel="stylesheet"> 
         <title>CONNECT 4!!!</title>
     </head>
     <body>
+        <div id="backgroundOverlay">
+            <video id="backgroundVideo" autoplay loop>
+                <source src="./media/backgroundVideo.mp4" type="video/mp4">
+            </video>
+        </div>
         <header>
-            <h1>awesome connect four </h1>
+            <img src="./media/headerPic.png" alt="">
 
         </header>
-        <div id="winner">
-            <div id="winnerText">
-            <h4> and the winner is</h4>
-            </div>
-            <div id=="btn-Area">
-                <button type="button" name="button">Start again</button>
+        <div id="winnerBack">
+            <div id="winner">
+                <div id="winnerText">
+                </div>
+                <div id="btn-Area">
+                    <button id="playAgainButton" type="button" name="button">FIGHT</button>
+                </div>
             </div>
         </div>
-        <nav>
-        </nav>
         <main>
+            <div id='sidebarDieter'>
+                <div class="playerImage active">
+                    <img src="./media/dieter.jpg" alt="">
+                </div>
+            </div>
             <div id="gamearea">
                 <div id="col1" class="column">
                     <div id="0" class="slot 1"></div>
@@ -79,6 +89,10 @@
                     <div id="41" class="slot 6"></div>
                 </div>
             </div>
+            <div id='sidebarThomas'>
+                <div class="playerImage">
+                    <img src="./media/thomas.jpg" alt="">
+                </div></div>
         </main>
         <footer></footer>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

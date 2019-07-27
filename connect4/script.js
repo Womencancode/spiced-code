@@ -5,28 +5,49 @@
     var actualSlot;
     var actualSlotPosition;
     var returnedActualSlotPosition = false;
-
+    var playAgainButton = $("#playAgainButton");
     //********
     // switch Players
     //********
-
     function switchPlayers() {
+        var thomas = $("#sidebarThomas").find(".playerImage");
+        var dieter = $("#sidebarDieter").find(".playerImage");
+        console.log(thomas);
         if (currentPlayer == "player1") {
             currentPlayer = "player2";
+            dieter.removeClass("active");
+            thomas.addClass("active");
         } else {
             currentPlayer = "player1";
+            thomas.removeClass("active");
+            dieter.addClass("active");
         }
     }
-
     //********
     // winning animation
     //********
     function winningAnimation() {
         console.log("in the winning animation");
-        var winnerDiv = $("#winner");
         var winnerText = $("#winnerText");
-        winnerText.append("<h1>" + currentPlayer + "</h1>");
-        winnerDiv.fadeIn("4000");
+        if (currentPlayer == "player1") {
+            winnerText.html("<h4> and the winner is</h4><h1>DIETER</h1>");
+        } else {
+            winnerText.html("<h4> and the winner is</h4><h1>THOMAS</h1>");
+        }
+        $("#winnerBack").fadeIn("4000");
+        //********
+        // restart game
+        //********
+
+        playAgainButton.on("click", function() {
+            $(document)
+                .find(".player1")
+                .removeClass("player1");
+            $(document)
+                .find(".player2")
+                .removeClass("player2");
+            $("#winnerBack").fadeOut("4000");
+        });
     }
 
     //********
@@ -46,7 +67,6 @@
             }
         }
     }
-
     //********
     // check diagonal
     // direction:   top right to bottom left: -5
@@ -54,26 +74,9 @@
     //              top left to bottom right: +7
     //              bottom right to top left: -7
     //********
-
     function checkForVictoryDiagonal(slots, direction, actualSlotPosition) {
-        console.log("check: " + direction);
         returnedActualSlotPosition = false;
         var count = 0;
-        // console.log("direction: " + direction);
-        // console.log("Actual Slot Postion: " + actualSlotPosition);
-        // console.log("New Slot Position: " + (actualSlotPosition + direction));
-        // console.log(
-        //     slots
-        //         .eq(actualSlotPosition)
-        //         .parent()
-        //         .attr("id")
-        // );
-        // console.log(
-        //     slots
-        //         .eq(actualSlotPosition + direction)
-        //         .parent()
-        //         .attr("id")
-        // );
         for (var j = 0; j < 4; j++) {
             if (
                 slots
@@ -94,29 +97,22 @@
                     oldSlot.hasClass(currentPlayer) ==
                     newSlot.hasClass(currentPlayer)
                 ) {
-                    // console.log("oldSlot: " + oldSlot.attr("id"));
-                    // console.log("newSlot: " + newSlot.attr("id"));
                     count++;
-                    console.log("counter: " + count);
                     if (count == 4) {
                         return true;
                     } else {
                         actualSlotPosition = actualSlotPosition + direction;
                     }
                 } else {
-                    console.log("next slot hast different color or no color");
                     count = 0;
                     returnedActualSlotPosition = actualSlotPosition;
                     break;
                 }
             } else {
-                console.log("slots in the same column");
                 returnedActualSlotPosition = actualSlotPosition;
-                console.log("+++++++++ BREAK +++++++++++");
                 break;
             }
         }
-        ///////// function checkForVictoryDiagonal end /////////////
         return;
     }
 
@@ -126,7 +122,6 @@
         //********
         var slotsInColumn = $(e.currentTarget).find(".slot");
         for (var i = 5; i >= 0; i--) {
-            // slotsInColumn = slotsInColumn.eq(i);
             if (
                 !slotsInColumn.eq(i).hasClass("player1") &&
                 !slotsInColumn.eq(i).hasClass("player2")
@@ -136,7 +131,6 @@
                 break;
             }
         }
-
         for (var k = 0; k < slotArr.length; k++) {
             if (slotArr[k] == actualSlot[0]) {
                 actualSlotPosition = k;
@@ -152,39 +146,29 @@
         // call the checks and look who won
         //********
         if (checkForVictory(slotsInColumn)) {
-            column.off();
             winningAnimation();
         } else if (checkForVictory($("." + (i + 1)))) {
             winningAnimation();
-            column.off();
+            //********
+            // check diagonalfrom left to right
+            //********
         } else if (checkForVictoryDiagonal(slotArr, -5, actualSlotPosition)) {
             winningAnimation();
-            column.off();
-            // check diagonal from left to right
         } else if (
             returnedActualSlotPosition !== false &&
             checkForVictoryDiagonal(slotArr, 5, returnedActualSlotPosition)
         ) {
-            // console.log("<3<3<3<3<3<3<3<3<3<3<3");
-            // console.log("actualSlotPosition: " + actualSlotPosition);
-            // console.log(
-            //     "returnedActualSlotPosition: " + returnedActualSlotPosition
-            // );
-            // console.log("<3<3<3<3<3<3<3<3<3<3<3");
-
             winningAnimation();
-            column.off();
-
+            //********
             // check diagonalfrom right to left
+            //********
         } else if (checkForVictoryDiagonal(slotArr, 7, actualSlotPosition)) {
             winningAnimation();
-            column.off();
         } else if (
             returnedActualSlotPosition !== false &&
             checkForVictoryDiagonal(slotArr, -7, returnedActualSlotPosition)
         ) {
             winningAnimation();
-            column.off();
         }
         switchPlayers();
     });
