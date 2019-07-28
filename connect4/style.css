@@ -75,7 +75,13 @@ main {
     border: 1px solid black;
     border-radius: 50px;
     margin: 5px;
+    transform: rotate(0deg);
     background-color: rgba(254, 28, 224, 0.42);
+}
+
+.winnerSlot {
+    animation: winnerSlot 0.3s linear infinite;
+    transform: rotate(360deg);
 }
 
 .player1 {
@@ -91,6 +97,7 @@ main {
 }
 #winnerBack {
     position: fixed;
+    z-index: 100;
     top: 50%;
     transform: translateY(-50%);
     width: 85%;
@@ -159,6 +166,16 @@ button:active {
     height: 160px;
     background-color: rgba(255, 52, 216, 0.88);
     box-shadow: 0 0 64px 38px rgb(255, 52, 216);
+}
+
+@keyframes winnerSlot {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes image {

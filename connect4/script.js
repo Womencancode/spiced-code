@@ -6,6 +6,7 @@
     var actualSlotPosition;
     var returnedActualSlotPosition = false;
     var playAgainButton = $("#playAgainButton");
+    var winnerArr = [];
     //********
     // switch Players
     //********
@@ -28,13 +29,19 @@
     //********
     function winningAnimation() {
         console.log("in the winning animation");
+        console.log(winnerArr);
+        for (var i = 0; i <= winnerArr.length; i++) {
+            $("#" + winnerArr[i]).addClass("winnerSlot");
+        }
         var winnerText = $("#winnerText");
         if (currentPlayer == "player1") {
             winnerText.html("<h4> and the winner is</h4><h1>DIETER</h1>");
         } else {
             winnerText.html("<h4> and the winner is</h4><h1>THOMAS</h1>");
         }
-        $("#winnerBack").fadeIn("4000");
+        $("#winnerBack")
+            .delay(500)
+            .fadeIn("4000");
         //********
         // restart game
         //********
@@ -46,6 +53,9 @@
             $(document)
                 .find(".player2")
                 .removeClass("player2");
+            $(document)
+                .find(".slot")
+                .removeClass("winnerSlot");
             $("#winnerBack").fadeOut("4000");
         });
     }
@@ -58,11 +68,13 @@
         for (var i = 0; i < slots.length; i++) {
             if (slots.eq(i).hasClass(currentPlayer)) {
                 counter++;
+                winnerArr.push(slots.eq(i).attr("id"));
                 if (counter == 4) {
                     console.log(currentPlayer + " wins");
                     return true;
                 }
             } else {
+                winnerArr = [];
                 counter = 0;
             }
         }
@@ -92,11 +104,13 @@
                 var newSlot = slots.eq(actualSlotPosition + direction);
                 if (count == 0) {
                     count++;
+                    winnerArr.push(slots.eq(actualSlotPosition).attr("id"));
                 }
                 if (
                     oldSlot.hasClass(currentPlayer) ==
                     newSlot.hasClass(currentPlayer)
                 ) {
+                    winnerArr.push(newSlot.attr("id"));
                     count++;
                     if (count == 4) {
                         return true;
@@ -105,6 +119,7 @@
                     }
                 } else {
                     count = 0;
+                    winnerArr = [];
                     returnedActualSlotPosition = actualSlotPosition;
                     break;
                 }
