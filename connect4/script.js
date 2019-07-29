@@ -30,6 +30,9 @@
     function winningAnimation() {
         console.log("in the winning animation");
         console.log(winnerArr);
+        $("#gamearea")
+            .find(".slot")
+            .addClass("locked");
         for (var i = 0; i <= winnerArr.length; i++) {
             $("#" + winnerArr[i]).addClass("winnerSlot");
         }
@@ -56,6 +59,9 @@
             $(document)
                 .find(".slot")
                 .removeClass("winnerSlot");
+            $("#gamearea")
+                .find(".slot")
+                .removeClass("locked");
             $("#winnerBack").fadeOut("4000");
         });
     }
@@ -135,6 +141,14 @@
         //********
         // add the stones
         //********
+        if (
+            $("#gamearea")
+                .find(".slot")
+                .hasClass("locked")
+        ) {
+            return;
+        }
+
         var slotsInColumn = $(e.currentTarget).find(".slot");
         for (var i = 5; i >= 0; i--) {
             if (
