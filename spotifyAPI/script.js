@@ -3,6 +3,7 @@
     var data;
     var userInput;
     var albumOrArtist;
+    $("select").val();
 
     function getData() {
         userInput = $("input[name='user-input']").val();
@@ -15,6 +16,25 @@
         };
     }
 
+    function infiniteCheck() {
+        var hasReachedBottom =
+            $(window).height() + $(document).scrollTop() >=
+            $(document).height() - 400;
+
+        if (hasReachedBottom) {
+            console.log("has reach the bottom");
+            console.log("remove result msg");
+            $("#resultMsg").remove();
+            console.log("get the data");
+            getData();
+            console.log("get next url");
+            getInfo(nextUrl);
+        } else {
+            console.log("has reach the bottom, load more");
+            setTimeout(infiniteCheck, 500);
+        }
+    }
+
     function getInfo(url, data) {
         $.ajax({
             url: url,
@@ -25,13 +45,8 @@
                 response = response.artists || response.albums;
                 console.log("response.next:", response.next);
 
-                if (response.next !== null) {
-                    $("#next-btn").css("visibility", "visible");
-                } else {
-                    $("#next-btn").css("visibility", "hidden");
-                }
-
                 var html = "";
+
                 if (response.items.length > 0) {
                     $("main").prepend(
                         "<div id='resultMsg'> results for " +
@@ -69,6 +84,17 @@
                         );
                 }
                 $("#results-container").append(html);
+
+                if (response.next !== null) {
+                    if (location.search.indexOf("scroll=infinite") > -1) {
+                        console.log("scroll=infinite");
+                        infiniteCheck();
+                    } else {
+                        $("#next-btn").css("visibility", "visible");
+                    }
+                } else {
+                    $("#next-btn").css("visibility", "hidden");
+                }
             },
             error: function(error) {
                 alert("ERROR: ", error);

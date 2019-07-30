@@ -45,7 +45,7 @@ nav input {
     border: none;
     border-bottom: 1px solid #77bcea;
     text-align: center;
-    font-family: "Comfortaa", cursive;
+    font-family: "Comfortaa";
     color: #37393a;
     font-size: 20px;
     width: 400px;
@@ -74,12 +74,10 @@ nav select {
     background-repeat: no-repeat;
 }
 
-nav option:focus {
+nav option {
     font-family: "Comfortaa", cursive;
     color: #37393a;
     font-size: 20px;
-    background-color: transparent;
-    border: 1px dotted #77bcea;
 }
 
 main {
