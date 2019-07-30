@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+​
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Handlebars!!</title>
+</head>
+​
+<body>
+​
+
+<!--    //*********+
+        // EXAMPLE 1
+        //*********+ -->
+    <!-- <div class="sassafrass-info">
+        <script id="sassafrass" type="text/x-handlebars-template">
+            <h1>Hello {{name}} </h1>
+            <h3>Nickname: {{nickName}}</h3>
+            <ul>
+                {{#favouriteFoods}}
+                    <li> {{.}} </li>
+                {{/favouriteFoods}}
+            </ul>
+        </script>
+    </div> -->
+
+    <div class="dogs-info"></div>
+    <script id="dogs" type="text/x-handlebars-template">
+        {{#dogs}}
+        <div class="container">
+            <div class="card">
+                <img src="{{image}}">
+                <h2>{{name}}</h2>
+    ​
+                <section>
+                    <div class="properties">Breed:</div>
+                    <div class="values">
+                        <p>{{breed}}</p>
+                    </div>
+                </section>
+    ​
+                <section>
+                    <div class="properties">temperament:</div>
+                    <div class="values">
+                        {{#temperament}}
+                        <p> {{.}} </p>
+                        {{/temperament}}
+                    </div>
+                </section>
+            </div>
+        </div>
+        {{/dogs}}
+    </script>
+
+
+​   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+​
+</html>
