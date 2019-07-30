@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>athors</title>
+    </head>
+    <body>
+        <div class="infoArea"></div>
+        <script id="authors" type="text/x-handlebars-template">
+            {{#authors}}
+            <div class="card">
+                    <img src="{{photo}}" alt="">
+                    <h1>{{name}}</h1>
+                    <p>* {{born}} † {{died}}</p>
+                    <div class="quote">
+                        {{quote}}
+                    </div>
+                    <h2>selected Writings</h2>
+                    <ul>{{#selectedWritings}}
+                        <li>{{.}}</li>
+                        {{/selectedWritings}}
+                    </ul>
+            </div>
+            {{/authors}}
+        </script>
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
