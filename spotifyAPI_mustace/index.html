@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa|Muli&display=swap" rel="stylesheet">
+        <title>search spotify</title>
+    </head>
+    <body>
+        <header>
+            <h1>Spotify search</h1>
+        </header>
+        <nav>
+            <select class="" name="">
+                <option id="artist">artist</option>
+                <option id="album">album</option>
+            </select>
+            <input type="text" name="user-input" placeholder="<- choose album/band">
+            <button type="button" name="button" id="submit-btn">search</button>
+        </nav>
+        <main>
+            <div id="results-container"></div>
+            <script id="resultsScript" type="text/x-handlebars-template">
+                {{#items}}
+                    <div class="result">
+                        <a href="{{external_urls.spotify}}" target="_blank">
+                            <img class="imgResult" src="{{images.0.url}}">
+                        </a>
+                        <div class="responseName">
+                            <p>{{name}}
+                        </div>
+                    </div>
+                {{/items}}
+            </script>
+            <button type="button" name="button" id="next-btn">next</button>
+        </main>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="script.js" charset="utf-8"></script>
+    </body>
+</html>
