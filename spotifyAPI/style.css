@@ -105,19 +105,21 @@ main {
 .result {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 300px;
+    justify-content: flex-start;
+    align-items: center;
     width: 165px;
     margin: 5px;
-    border: 1px dotted black;
-    overflow: hidden;
+    border-bottom: 1px dotted #77bcea;
 }
 
-.result img {
+.imgResult {
+    position: relative;
     width: 165px;
     height: 165px;
     padding-left: 3px;
     padding-right: 3px;
+    object-fit: cover;
+    border-radius: 83px;
 }
 
 #next-btn {

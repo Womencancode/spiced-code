@@ -35,13 +35,20 @@
         }
     }
 
+    function startSearch() {
+        $(".result").remove();
+        getData();
+        // console.log("data:", data);
+        getInfo("https://elegant-croissant.glitch.me/spotify", data);
+    }
+
     function getInfo(url, data) {
         $.ajax({
             url: url,
             method: "GET",
             data: data,
             success: function(response) {
-                // console.log("response: ", response);
+                console.log("response: ", response);
                 response = response.artists || response.albums;
                 console.log("response.next:", response.next);
 
@@ -68,13 +75,13 @@
                     }
 
                     html +=
-                        "<div class='result'><img src='" +
-                        imageUrl +
-                        "'><div class='responseName'>" +
-                        response.items[i].name +
-                        "</div><a href='" +
+                        "<div class='result'><a href='" +
                         response.items[i].external_urls.spotify +
-                        "' target='_blank'>Goto Spotify</a></div>";
+                        "' target='_blank'><img class='imgResult' src='" +
+                        imageUrl +
+                        "'></a><div class='responseName'><p>" +
+                        response.items[i].name +
+                        "</p></div></div>";
 
                     nextUrl =
                         response.next &&
@@ -102,12 +109,16 @@
         });
     }
 
+    $("input").on("focus, keydown", function(e) {
+        if (e.keyCode == 13) {
+            $("#resultMsg").remove();
+            startSearch();
+        }
+    });
+
     $("#submit-btn").on("click", function() {
-        $(".result").remove();
         $("#resultMsg").remove();
-        getData();
-        // console.log("data:", data);
-        getInfo("https://elegant-croissant.glitch.me/spotify", data);
+        startSearch();
     });
 
     $("#next-btn").on("click", function() {
