@@ -24,7 +24,11 @@
                 {{#items}}
                     <div class="result">
                         <a href="{{external_urls.spotify}}" target="_blank">
+                            {{#if images.0.url}}
                             <img class="imgResult" src="{{images.0.url}}">
+                            {{else}}
+                            <img class="imgResult" src="default.jpg">
+                            {{/if}}
                         </a>
                         <div class="responseName">
                             <p>{{name}}

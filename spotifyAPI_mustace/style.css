@@ -113,10 +113,6 @@ main {
 }
 
 .imgResult {
-    background-image: url("default.jpg");
-    background-size: 200px 200px;
-    background-position: center;
-    background-repeat: no-repeat;
     position: relative;
     width: 165px;
     height: 165px;
