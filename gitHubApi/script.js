@@ -32,13 +32,28 @@
                 });
                 $("#resultsContainer").html(repos);
 
-                $(".repoCard").on("click", function(evt) {
-                    var ownerRepo = $(evt.target)
-                        .parent()
-                        .find(".fullName")
-                        .text()
-                        .split("/");
-                    getCommits(ownerRepo);
+                $(".latestCommits").on("click", function(evt) {
+                    if (
+                        $(evt.target)
+                            .parent()
+                            .parent()
+                            .find(".showCommits")
+                            .text().length > 0
+                    ) {
+                        $(evt.target)
+                            .parent()
+                            .parent()
+                            .find(".showCommits")
+                            .toggle("hidden");
+                    } else {
+                        var ownerRepo = $(evt.target)
+                            .parent()
+                            .parent()
+                            .find(".fullName")
+                            .text()
+                            .split("/");
+                        getCommits(ownerRepo, evt.target);
+                    }
                 });
             },
             error: function(err) {
@@ -47,7 +62,7 @@
         });
     }
 
-    function getCommits(arr) {
+    function getCommits(arr, event) {
         var endPoint = "/repos/" + arr[0] + "/" + arr[1] + "/commits";
         // console.log("URL: ", baseUrl + endPoint);
 
@@ -57,24 +72,22 @@
                 Authorization: "Basic " + btoa(username + ":" + password)
             },
             success: function(data) {
-                console.log(data);
+                // console.log(data);
                 var commits = Handlebars.templates.commits({
                     commit: data.slice(0, 10)
                 });
-                $("#showCommitsWrapper").html(commits);
+                $(event)
+                    .parent()
+                    .parent()
+                    .append(commits);
             },
             error: function(err) {
-                console.log(err);
+                console.log("ERROR!:", err);
             }
         });
     }
 
     $("#go-button").on("click", function() {
         getRepos();
-    });
-
-    $("#showCommitsWrapper").on("click", "#closeShowCommits", function() {
-        console.log("press close");
-        $("#showCommits").remove();
     });
 })();

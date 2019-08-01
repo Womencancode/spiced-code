@@ -1,43 +1,97 @@
 body {
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 50px 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #59a3f2;
+    color: #202c39;
+    font-family: "Roboto", sans-serif;
 }
 
 #inputArea {
-    background-color: blue;
+    width: 100%;
+}
+
+p {
+    font-size: 10px;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-left: 2px solid #273544;
+    border-bottom: 1px dotted #273544;
+    height: 20px;
+    padding-left: 5px;
+    margin-right: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+button {
+    height: 1.5em;
+    background-color: transparent;
+    border: 2px #273544 solid;
+    width: 60px;
+    height: 20px;
+    font-family: "Roboto", sans-serif;
 }
 
 #resultsContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-left: -9px;
+    margin-top: 14px;
 }
 
 .repoCard {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 48%;
     margin: 5px;
-    height: 250px;
-    width: 250px;
+    border: 1px dotted #273544;
 }
 
 .avatarImg {
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
     object-fit: cover;
+    padding: 7px;
     border-radius: 125px;
     margin-bottom: 10px;
 }
 
-#showCommits {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: lightgrey;
-    height: 400px;
-    width: 500px;
+.latestCommits {
+    cursor: pointer;
+}
+
+.fullName {
+}
+
+.fullName h3 {
+    margin: 6px;
+}
+
+.latestCommits {
+}
+
+.latestCommits p {
+    margin: -5px 0px 0px 5px;
+}
+
+li {
+}
+
+ul {
+    font-size: 12px;
+    margin: 4px 0px 4px -23px;
 }
