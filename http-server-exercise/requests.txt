@@ -54,3 +54,13 @@
         request Url:	/Markus
         user-agent:	PostmanRuntime/7.15.2
         
+        Date:	Mon Aug 05 2019 14:49:37 GMT+0200 (GMT+02:00)
+        request Method:	POST
+        request Url:	/
+        user-agent:	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0
+        
+        Date:	Mon Aug 05 2019 14:49:37 GMT+0200 (GMT+02:00)
+        request Method:	GET
+        request Url:	/
+        user-agent:	Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0
+        

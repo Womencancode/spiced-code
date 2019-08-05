@@ -14,6 +14,7 @@
     var data;
     var userInput;
     var albumOrArtist;
+    var timer;
     $("select").val();
 
     function getData() {
@@ -42,7 +43,7 @@
             getInfo(nextUrl);
         } else {
             console.log("has reach the bottom, load more");
-            setTimeout(infiniteCheck, 500);
+            timer = setTimeout(infiniteCheck, 500);
         }
     }
 
@@ -129,6 +130,7 @@
     });
 
     $("#submit-btn").on("click", function() {
+        clearTimeout(timer);
         $("#resultMsg").remove();
         startSearch();
     });

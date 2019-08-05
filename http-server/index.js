@@ -12,6 +12,7 @@ const server = http.createServer(function(request, response) {
     response.on("error", err => {
         console.log(err);
     });
+
     console.log(request.method, request.url, request.headers);
     if (request.method == "POST") {
         let body = "";
