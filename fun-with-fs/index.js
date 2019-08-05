@@ -47,7 +47,7 @@ function mapSizes(path) {
 }
 
 // console.log(obj);
-fs.writeFileSync(
-    `${savePath}/files.json`,
-    JSON.stringify(mapSizes(myPath), null, 4)
-);
+// fs.writeFileSync(
+//     `${savePath}/files.json`,
+//     JSON.stringify(mapSizes(myPath), null, 4)
+// );
