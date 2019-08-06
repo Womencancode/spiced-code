@@ -2,7 +2,7 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const chalk = require("chalk");
-const ca = require("chalk-animation");
+const mkDir = require("./mkDir.js");
 
 function serveData(url, res) {
     const readStream = fs.createReadStream(__dirname + "/projects" + url);
@@ -20,16 +20,22 @@ http.createServer((req, res) => {
         return res.end();
     }
 
-    // console.log("path:", path);
-
     const myPath = path.normalize(__dirname + "/projects" + req.url);
     console.log(chalk.blue(myPath));
     if (!myPath.startsWith(__dirname + "/projects")) {
-        console.log(ca.rainbow("dont to that!!! GO FUCK YOURSELF!"));
+        console.log("dont to that!!! GO FUCK YOURSELF!");
         res.statusCode = 403;
         return res.end();
     }
-
+    //////////////////////////
+    if (req.url == "/") {
+        // console.log("req url create main index:", req.url);
+        // console.log("do the start stuff here");
+        mkDir(function(err, html) {
+            res.end(html);
+        });
+    }
+    //////////////////////////
     fs.stat(__dirname + "/projects" + req.url, (err, stats) => {
         // console.log("req url:", req.url);
         // console.log(stats);
@@ -50,9 +56,9 @@ http.createServer((req, res) => {
             }
             serveData(req.url + "index.html", res);
         } else {
-            console.log("is File");
+            // console.log("is File");
             // console.log(stats);
-            console.log(path.extname(req.url));
+            // console.log(path.extname(req.url));
 
             const fileExtHeaders = {
                 ".html": "text/html",
@@ -64,7 +70,7 @@ http.createServer((req, res) => {
                 ".png": "image/png",
                 ".svg": "image/svg+xml"
             };
-            console.log(fileExtHeaders[path.extname(req.url)]);
+            // console.log(fileExtHeaders[path.extname(req.url)]);
             res.setHeader(
                 "content-type",
                 fileExtHeaders[path.extname(req.url)]
