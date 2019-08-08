@@ -1,11 +1,11 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-var basicAuth = require("basic-auth");
+let basicAuth = require("basic-auth");
 
-var auth = function(req, res, next) {
+let auth = function(req, res, next) {
     var creds = basicAuth(req);
-    if (!creds || creds.name != "disco" || creds.pass != "open1") {
+    if (!creds || creds.name != "hallo" || creds.pass != "open3") {
         res.setHeader(
             "WWW-Authenticate",
             'Basic realm="Enter your credentials to see this stuff."'
@@ -15,12 +15,12 @@ var auth = function(req, res, next) {
         next();
     }
 };
-
-app.use("/gitHubApi", auth);
 // this is running basic auth for every single route
 // app.use(auth);
 
 app.use(cookieParser());
+
+app.use("/gitHubApi", auth);
 
 app.use(express.static("./projects"));
 
@@ -74,20 +74,10 @@ app.get("/youshallnotpass", (req, res) => {
         `);
 });
 
-// app.get("/:url", (req, res) => {
-//     res.send(`
-//         <h1> you are now on the ${req.params.url} page </h1>
-//         `);
-// });
-
 app.get("/", (req, res) => {
     res.send(`
         <h1> you are on the home page <h1>
         `);
-});
-
-app.get("/gitHubApi", (req, res) => {
-    res.redirect("/gitHubApi");
 });
 
 app.listen(8080, (req, res) => {
