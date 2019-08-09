@@ -1,0 +1,12 @@
+{{#projects}}
+        {{#if ../card}}
+            <div class="card">
+        {{else}}
+            <div class="nav">
+        {{/if}}
+        {{#if ../img}}
+            <img src="/{{directory}}/thumpnail.png">
+        {{/if}}
+            <a href="/projects/{{directory}}">{{name}}</a>
+            </div>
+{{/projects}}

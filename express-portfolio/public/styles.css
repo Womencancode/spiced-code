@@ -8,6 +8,17 @@ body {
     width: 100%;
 }
 
+nav {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    width: 500px;
+}
+
+nav img {
+    visibility: hidden;
+}
+
 header {
     height: 100px;
     display: flex;
@@ -28,12 +39,6 @@ footer {
     height: 50px;
     bottom: 0;
 }
-img {
-    height: 150px;
-    width: 150px;
-    object-fit: cover;
-    margin-bottom: 5px;
-}
 
 .card {
     width: 150px;
@@ -42,4 +47,27 @@ img {
     flex-direction: column;
     border: 1px dotted black;
     margin: 10px;
+}
+
+.card img {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#content img {
+    width: 500px;
+    object-fit: contain;
+}
+
+#projDescription {
+    display: flex;
+    justify-content: flex-start;
 }

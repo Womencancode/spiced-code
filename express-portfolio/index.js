@@ -29,6 +29,10 @@ let auth = function(req, res, next) {
 
 app.use(cookieParser());
 
+app.use("/favicon.ico", (req, res) => {
+    res.sendStatus(404);
+});
+
 app.use("/gitHubApi", auth);
 
 app.use(express.static("./projects"));
@@ -57,11 +61,14 @@ const dirs = fs.readdirSync("./projects");
 // console.log(dirs);
 
 const projects = dirs.map(function(dir) {
+    const data = require(__dirname + `/projects/${dir}/data.json`);
     return {
         directory: dir,
-        name: require(__dirname + `/projects/${dir}/data.json`).name
+        name: data.name,
+        description: data.description
     };
 });
+
 // console.log(projects);
 app.get("/cookie", (req, res) => {
     // console.log("I made it to the cookies");
@@ -94,10 +101,33 @@ app.get("/youshallnotpass", (req, res) => {
         `);
 });
 
+app.get("/projects/:proj", (req, res) => {
+    const currentProject = projects.find(i => i.directory == req.params.proj);
+    // console.log("current proj:", currentProject);
+    if (!currentProject) {
+        console.log("in the if");
+        res.sendStatus(404);
+    } else {
+        console.log(currentProject);
+        res.render("projDescription", {
+            projects: projects,
+            pDirectory: currentProject.directory,
+            pName: currentProject.name,
+            pDescription: currentProject.description,
+            layout: "main"
+        });
+    }
+});
+
 app.get("/", (req, res) => {
     res.render("welcome", {
         projects: projects,
         layout: "main"
+        // helpers: {
+        //     scream(str) {
+        //         str.toUpperCase();
+        //     }
+        // }
     });
 });
 
