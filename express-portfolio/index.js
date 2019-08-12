@@ -114,7 +114,16 @@ app.get("/projects/:proj", (req, res) => {
             pDirectory: currentProject.directory,
             pName: currentProject.name,
             pDescription: currentProject.description,
-            layout: "main"
+            layout: "main",
+            helpers: {
+                highlight(str) {
+                    if (currentProject.directory !== str.directory) {
+                        return "";
+                    } else {
+                        return "highlight";
+                    }
+                }
+            }
         });
     }
 });
@@ -122,12 +131,12 @@ app.get("/projects/:proj", (req, res) => {
 app.get("/", (req, res) => {
     res.render("welcome", {
         projects: projects,
-        layout: "main"
-        // helpers: {
-        //     scream(str) {
-        //         str.toUpperCase();
-        //     }
-        // }
+        layout: "main",
+        helpers: {
+            highlight() {
+                return "";
+            }
+        }
     });
 });
 
