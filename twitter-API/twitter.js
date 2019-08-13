@@ -42,7 +42,7 @@ exports.getToken = callback => {
 //     console.log(token);
 // });
 
-exports.getTweets = (token, callback) => {
+exports.getTweets = (token, screenName, callback) => {
     const authorization = "Bearer " + token;
     // console.log(authorization);
     // entity.url check if the tweet hast no or more than one get themn out only use tzweets with 1 url
@@ -50,8 +50,7 @@ exports.getTweets = (token, callback) => {
         {
             method: "GET",
             host: "api.twitter.com",
-            path:
-                "/1.1/statuses/user_timeline.json?screen_name=SPIEGELONLINE&tweet_mode=extended",
+            path: `/1.1/statuses/user_timeline.json?screen_name=${screenName}&tweet_mode=extended`,
             headers: {
                 Authorization: authorization
             }
@@ -79,7 +78,9 @@ exports.getTweets = (token, callback) => {
                                             ""
                                         ),
                                         href:
-                                            parsedTweets[i].entities.urls[0].url
+                                            parsedTweets[i].entities.urls[0]
+                                                .url,
+                                        birthday: parsedTweets[i].created_at
                                     });
                                 }
                             }
