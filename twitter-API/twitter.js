@@ -1,39 +1,5 @@
 const https = require("https");
 const { consumerKey, consumerSecret } = require("./secrets");
-// const req = https.request(
-//     {
-//         method: "GET",
-//         host: "flame-egg.glitch.me",
-//         path: "/?q=a"
-//     },
-//     function(resp) {
-//         if (resp.statusCode != 200) {
-//             console.log(resp.statusCode);
-//             //call the callback pass the statuscode
-//         } else {
-//             let body = "";
-//             resp.on("data", chunk => (body += chunk));
-//             resp.on("end", () => {
-//                 try {
-//                     //pass null for the error
-//                     //as a sec argument pass the body (the json obj)
-//                     body = JSON.parse(body);
-//                 } catch (err) {
-//                     console.log(err);
-//                     // erroer here when you not getting back a json obj
-//                 }
-//                 console.log(body);
-//                 // call the callback and pass the error
-//             });
-//         }
-//     }
-// );
-// send error here for error
-// req.on("error", err => console.log(err));
-// req.end();
-
-// for sending a rquest
-// req.end("mybody = irgendwas");
 
 exports.getToken = callback => {
     const req = https.request(
@@ -103,17 +69,9 @@ exports.getTweets = (token, callback) => {
                     .on("end", () => {
                         try {
                             const parsedTweets = JSON.parse(body);
-                            // console.log(parsedTweets[5].full_text);
-                            // console.log(parsedTweets[5].entities.urls[0].url);
                             let tweets = [];
-
-                            // const tweetsJSON = JSON;
                             for (let i = 0; i < parsedTweets.length; i++) {
                                 if (parsedTweets[i].entities.urls.length == 1) {
-                                    // console.log("+++++++++++++");
-                                    // console.log("position:", i);
-                                    // console.log(parsedTweets[i].full_text);
-                                    // console.log(parsedTweets[i].entities.urls);
                                     let title = parsedTweets[i].full_text;
                                     tweets.push({
                                         title: title.replace(
@@ -125,7 +83,6 @@ exports.getTweets = (token, callback) => {
                                     });
                                 }
                             }
-                            // console.log(tweets);
                             callback(null, tweets);
                         } catch (err) {
                             callback(err);
