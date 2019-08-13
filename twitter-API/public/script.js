@@ -19,7 +19,7 @@
                     var x =
                         '<a href="' +
                         response[i].href +
-                        '">' +
+                        '" target="_blank">' +
                         response[i].title +
                         "</a>";
                     linkHtml += x;
@@ -35,7 +35,7 @@
 
     moveHeadlines();
     function moveHeadlines() {
-        left--;
+        left = left - 3;
         if (
             left <=
             -headlines

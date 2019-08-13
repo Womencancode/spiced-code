@@ -70,7 +70,10 @@ exports.getTweets = (token, screenName, callback) => {
                             const parsedTweets = JSON.parse(body);
                             let tweets = [];
                             for (let i = 0; i < parsedTweets.length; i++) {
-                                if (parsedTweets[i].entities.urls.length == 1) {
+                                if (
+                                    parsedTweets[i].entities.urls.length == 1 &&
+                                    parsedTweets[i].full_text.length != 23
+                                ) {
                                     let title = parsedTweets[i].full_text;
                                     tweets.push({
                                         title: title.replace(
@@ -80,7 +83,7 @@ exports.getTweets = (token, screenName, callback) => {
                                         href:
                                             parsedTweets[i].entities.urls[0]
                                                 .url,
-                                        birthday: parsedTweets[i].created_at
+                                        created_at: parsedTweets[i].created_at
                                     });
                                 }
                             }
