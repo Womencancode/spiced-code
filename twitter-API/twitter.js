@@ -70,6 +70,10 @@ exports.getTweets = (token, screenName, callback) => {
                             const parsedTweets = JSON.parse(body);
                             let tweets = [];
                             for (let i = 0; i < parsedTweets.length; i++) {
+                                console.log("++++++++++++++++++");
+                                console.log(parsedTweets[i].full_text.length);
+                                console.log(parsedTweets[i].full_text);
+                                console.log("++++++++++++++++++");
                                 if (
                                     parsedTweets[i].entities.urls.length == 1 &&
                                     parsedTweets[i].full_text.length != 23

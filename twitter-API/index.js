@@ -20,14 +20,14 @@ app.get("/links.json", (req, res) => {
                 let tweetSet2 = result[1];
                 let tweetSet3 = result[2];
 
-                let mergedTweets = [...tweetSet1, ...tweetSet2, tweetSet3];
+                let mergedTweets = [...tweetSet1, ...tweetSet2, ...tweetSet3];
                 let tweets = mergedTweets.sort((a, b) => {
                     return new Date(b.created_at) - new Date(a.created_at);
                 });
                 console.log("++++++++++++++++++");
                 console.log("++++++++++++++++++");
                 console.log("++++++++++++++++++");
-                console.log(tweets);
+                // console.log(tweets);
                 res.json(tweets);
             })
             .catch(err => {
